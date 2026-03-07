@@ -43,24 +43,21 @@ def find_above_average_students(students):
         tuple: (평균 점수, 평균 이상 학생 이름 리스트)
     """
     # TODO: 모든 학생의 점수를 리스트로 추출하세요
-    student_score_pairs = []
+    student_scores = []
     for student in students:
-        student_score_pairs.append((student["name"], student["score"]))
+        student_scores.append(student["score"])
 
     # TODO: 평균 점수를 계산하세요
-    total = 0
+    total = sum(student_scores)
     average = 0
 
-    # 반복문으로 [(학생, 점수), ...]를 조회하면서 점수를 더한다.
-    for _, score in student_score_pairs:
-        total += score
-
-    # 총 학생 수로 나누어 average 변수에 저장한다. len([(학생-점수)]) 이용
-    average = total / len(student_score_pairs)
+    average = total / len(student_scores)
 
     # TODO: 평균 이상인 학생들의 이름을 리스트로 추출하세요
-    # 반복문으로 [(학생, 점수)] 순회하며 점수가 평균 이상인 학생의 이름을 list에 저장한다. (컴프리헨션 문법을 알아 보자)
-    above_average_students = [ name for name, score in student_score_pairs if (score > average) ]
+    above_average_students = []
+    for student in students:
+        if student["score"] > average:
+            above_average_students.append(student["name"])
 
     return average, above_average_students
 
