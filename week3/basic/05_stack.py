@@ -42,14 +42,15 @@ def is_valid_parentheses(s):
     ## : 여는 괄호 '('면 스택에 추가
     ## : 닫는 괄호 ')'면
     ## 스택이 비어있으면 False 반환
-    ## 아니면 스택에서 pop
+    ## 아니면 스택에서 pop\
+    ## NOTE: 괄호 종류가 1인 경우에는 counter 변수로 풀 수 있다. 열린 괄호는 증가 닫힌 괄호는 감소
     for char in s:
         if char == "(":
             stack.append(char)
-        elif stack and char == ")":
-            stack.pop()
         else:
-            return False
+            if not stack:
+                return False
+            stack.pop()
 
     # TODO: 반복이 끝나면 스택이 비어있는지 확인
     return not stack
