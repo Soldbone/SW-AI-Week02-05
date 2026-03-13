@@ -47,6 +47,26 @@ class Solution:
         else:
             return "/" + "/".join(simplified_path)
         
+# class Solution:
+#     def simplifyPath(self, path: str) -> str:
+#         dir_names = path.split("/")
+#         result = []
+#         for dir_name in dir_names:
+#             if not dir_name:
+#                 continue
+#             if dir_name == '.':
+#                 continue
+#             if dir_name == '..':
+#                 if result:
+#                     result.pop()
+#                 continue
+#             result.append(dir_name)
+#         if len(result) == 0:
+#             return '/'
+#         elif len(result) == 1:
+#             return '/' + result[0]
+#         return '/'+'/'.join(result)
+        
 solution = Solution()
 path = "/.../a/../b/c/../d/./"
 print(solution.simplifyPath(path))
