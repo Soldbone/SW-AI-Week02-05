@@ -20,17 +20,17 @@ print(pow_modulo(a, b))
 
 
 
-## 반복문 버전
-a, b, c = map(int, input().split())
+# ## 반복문 버전
+# a, b, c = map(int, input().split())
 
-result = 1
-num = a % c
-n = b
+# result = 1
+# num = a % c
+# n = b
 
-while n > 0:
-    if n % 2 == 1:
-        result = (result * num) % c
-    num = (num * num) % c
-    n //= 2
+# while n > 0:
+#     if n % 2 == 1:
+#         result = (result * num) % c
+#     num = (num * num) % c
+#     n //= 2
 
-print(result)
+# print(result)
