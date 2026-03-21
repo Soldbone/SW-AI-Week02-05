@@ -48,8 +48,6 @@ def create_graph(vertices: int, edges: list[tuple], directed=False):
     ## 간선 추가 (u에서 v로)
     ## 무방향 그래프면 반대 방향도 추가
     for u, v in edges:
-        # 이미 있으면 value의 list에 추가
-        # 없으면 value list를 새로 만들어서 할당
         graph[u].append(v)
         if not directed:
             graph[v].append(u)
