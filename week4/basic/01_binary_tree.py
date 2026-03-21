@@ -68,21 +68,21 @@ def inorder(root):
     """중위 순회: 왼쪽 → 루트 → 오른쪽"""
     result = []
 
-    def _preorder(root):
+    def _inorder(root):
         # root가 None이면 빈 리스트 반환
         if root is None:
             return
 
         # 왼쪽 서브트리 순회
-        _preorder(root.left)
+        _inorder(root.left)
 
         # 루트 값 추가
         result.append(root.value)
 
         # 오른쪽 서브트리 순회
-        _preorder(root.right)
+        _inorder(root.right)
 
-    _preorder(root)
+    _inorder(root)
     return result
 
 
@@ -90,21 +90,21 @@ def postorder(root):
     """후위 순회: 왼쪽 → 오른쪽 → 루트"""
     result = []
 
-    def _preorder(root):
+    def _postorder(root):
         # root가 None이면 빈 리스트 반환
         if root is None:
             return
 
         # 왼쪽 서브트리 순회
-        _preorder(root.left)
+        _postorder(root.left)
 
         # 오른쪽 서브트리 순회
-        _preorder(root.right)
+        _postorder(root.right)
 
         # 루트 값 추가
         result.append(root.value)
 
-    _preorder(root)
+    _postorder(root)
     return result
 
 
