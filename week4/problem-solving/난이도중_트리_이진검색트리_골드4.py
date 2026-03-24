@@ -40,6 +40,7 @@
 
 
 import sys
+
 sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
 
@@ -57,6 +58,7 @@ idx = 0
 n = len(preorder)
 result = []
 
+
 def build(lower, upper):
     global idx
 
@@ -69,9 +71,10 @@ def build(lower, upper):
         return
 
     idx += 1
-    build(lower, value)   # 왼쪽
-    build(value, upper)   # 오른쪽
+    build(lower, value)  # 왼쪽
+    build(value, upper)  # 오른쪽
     result.append(value)  # 후위 순회
 
-build(float('-inf'), float('inf'))
-print('\n'.join(map(str, result)))
+
+build(float("-inf"), float("inf"))
+print("\n".join(map(str, result)))
