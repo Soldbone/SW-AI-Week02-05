@@ -41,23 +41,38 @@ def make_change_greedy(change, coins):
     Returns:
         (총 개수, {동전: 개수} 딕셔너리)
     """
-    result = {}
-    total_coins = 0
 
-    # TODO: 각 동전에 대해 반복
-    ## 현재 동전으로 거슬러줄 수 있는 개수 계산
-    ## 개수가 0보다 크면 결과에 추가
+    ### 리팩토링 전 ###
+    # result = {}
+    # total_coins = 0
+
+    # # TODO: 각 동전에 대해 반복
+    # ## 현재 동전으로 거슬러줄 수 있는 개수 계산
+    # ## 개수가 0보다 크면 결과에 추가
+    # for coin in coins:
+    #     count = change // coin
+    #     if count > 0:
+    #         change %= coin
+    #         total_coins += count
+    #         result[coin] = count
+
+    # if change != 0:
+    #     return None
+
+    # return total_coins, result
+
+    ### 리팩토링 후 ###
+    coins = sorted(coins, reverse=True)
+    result = dict()
+    total_count = 0
     for coin in coins:
-        count = change // coin
+        count, change = divmod(change, coin)
         if count > 0:
-            change %= coin
-            total_coins += count
+            total_count += count
             result[coin] = count
-
     if change != 0:
         return None
-
-    return total_coins, result
+    return total_count, result
 
 
 # 테스트 케이스
